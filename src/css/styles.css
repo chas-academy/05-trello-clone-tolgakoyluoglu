@@ -16,14 +16,14 @@ a:hover {
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 ul li {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 input {
@@ -43,7 +43,7 @@ input {
 }
 
 .board {
-    height: 100vh;
+  height: 100vh;
 }
 
 .column {
@@ -89,8 +89,6 @@ input {
 .list-cards {
   flex: 1 1 auto;
   margin-bottom: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
   margin: 0 4px;
   padding: 0 4px;
   z-index: 1;
