@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import 'jquery-ui/themes/base/all.css';
 
 //TODO:
 //DATE PICKER
@@ -34,9 +35,37 @@ const jtrello = (function () {
     DOM.$deleteCardButton = $('.card > button.delete');
   }
 
-  function createTabs() {}
+  function createList(event) {
+    event.preventDefault();
 
-  function createDialogs() {}
+    let createLists = $(DOM.$columns).clone(true, true);
+    $(createLists).prependTo('.board')
+    datePicker();
+    //createLists.addClass('blabla');
+
+  }
+
+  function createTabs() {
+    $('.dialog').tabs();
+  }
+
+  function dialog() {
+    $('.dialog').dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    })
+
+    $('.open').on('click', function () {
+      $('.dialog').dialog('open')
+    })
+  }
 
   /*
    *  Denna metod kommer nyttja variabeln DOM för att binda eventlyssnare till
@@ -45,54 +74,44 @@ const jtrello = (function () {
   function bindEvents() {
     DOM.$newListButton.on('click', createList);
     DOM.$deleteListButton.on('click', deleteList);
-
+    //DOM.$board.on('click', '.list-header > button.delete', deleteList);
     DOM.$newCardForm.on('submit', createCard);
     DOM.$deleteCardButton.on('click', deleteCard);
   }
 
   /* ============== Metoder för att hantera listor nedan ============== */
-  function createList() {
-    event.preventDefault();
-    console.log("This should create a new list");
-  }
 
   function deleteList() {
-    $(DOM.$lists).click(function (e) {
-      $(this).remove();
-    })
-
+    $(this).closest('.column').remove();
     console.log("This should delete the list you clicked on");
   }
 
+
   /* =========== Metoder för att hantera kort i listor nedan =========== */
   function dragCards() {
-    $(function () {
-      $(".list-cards").sortable({
-        connectWith: '.list-cards'
-      })
-    });
+    $(".list-cards").sortable({
+      connectWith: '.list-cards'
+    })
+    $('.board').sortable({})
   }
 
   function datePicker() {
-    $(function () {
-      $(".date").datepicker();
-    });
+    $(".date").datepicker();
   }
 
   function createCard(event) {
     event.preventDefault();
 
     let newItem = $(this).find('.inputvalue').val();
-    $(this).closest('div.list').append($('<li class="card">' + newItem + '</li>').on('click', deleteCard))
+    $(this).closest('div.list').append($('<li class="card">' + newItem + '<button class="button delete">X</button></li>').on('click', deleteCard))
+    newItem.val('')
 
     console.log("This should create a new card");
   }
 
-  function deleteCard(e) {
-    $(DOM.$cards).click(function (e) {
-      $(this).remove();
-    })
-    console.log("This should delete the card you clicked onhejds");
+  function deleteCard() {
+    $(this).closest('.card').remove();
+    console.log("This should delete the card you clicked on");
   }
 
   // Metod för att rita ut element i DOM:en
@@ -102,13 +121,13 @@ const jtrello = (function () {
 
   // Init metod som körs först
   function init() {
+    dialog();
     datePicker();
     dragCards();
     console.log(':::: Initializing JTrello ::::');
     // Förslag på privata metoder
     captureDOMEls();
     createTabs();
-    createDialogs();
     bindEvents();
   }
 

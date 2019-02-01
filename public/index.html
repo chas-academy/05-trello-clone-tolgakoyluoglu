@@ -7,11 +7,26 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>jQuery UI - Trello Clone (yay!)</title>
         <script>
-
         </script>
-    <link href="./css/index.3e7656b861baa33d083c.css" rel="stylesheet"></head>
+    <link href="./css/index.cc7fa0f23bf0c4462c08.css" rel="stylesheet"></head>
 
     <body>
+        <button id="new-list" class="button">Add new list</button>
+        <div class="dialog" title="Hi there!">
+            <ul>
+                <li><a href="#tab1">One</a></li>
+                <li><a href="#tab2">Two</a></li>
+                <li><a href="#tab3">Three</a></li>
+            </ul>
+            <div id="tab1">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div id="tab2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, dolore?</div>
+            <div id="tab3">Lorem ipsum dolor sit amet consectetur</div>
+            <p>Press "ESC" to see this dialog get destroyed!</p>
+        </div>
+        <button class="open">CLICK ME! :)</button>
+        </div>
         <div class="board">
             <div class="column">
                 <div class="list">
@@ -34,58 +49,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="column">
-                <div class="list">
-                    <div class="list-header">
-                        <p>Date: <input type="text" class="date"></p>
-                        Doing
-                        <button class="button delete">X</button>
-                    </div>
-                    <ul class="list-cards">
-                        <li class="card">
-                            Card #2
-                            <button class="button delete">X</button>
-                        </li>
-                        <li class="add-new">
-                            <form class="new-card" action="index.html">
-                                <input type="text" name="title" class="inputvalue" placeholder="Please name the card" />
-                                <button class="button add">Add new card</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="column">
-                <div class="list">
-                    <div class="list-header">
-                        <p>Date: <input type="text" class="date"></p>
-                        Done
-                        <button class="button delete">X</button>
-                    </div>
-                    <ul class="list-cards">
-                        <li class="card">
-                            Card #3
-                            <button class="button delete">X</button>
-                        </li>
-                        <li class="add-new">
-                            <form class="new-card" action="index.html">
-                                <input type="text" name="title" class="inputvalue" placeholder="Please name the card" />
-                                <button class="button add">Add new card</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="column">
-                <button id="new-list" class="button">Add new list</button>
-            </div>
-        </div>
-
-        <div id="list-creation-dialog" title="Create new list" style="height: 40px">
-            <form>
-                <input type="text" name="title" placeholder="List title" />
-            </form>
-        </div>
     <script type="text/javascript" src="./bundle.js"></script></body>
 
 </html>
