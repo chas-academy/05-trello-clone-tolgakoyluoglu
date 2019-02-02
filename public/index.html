@@ -8,38 +8,31 @@
         <title>jQuery UI - Trello Clone (yay!)</title>
         <script>
         </script>
-    <link href="./css/index.cc7fa0f23bf0c4462c08.css" rel="stylesheet"></head>
+    <link href="./css/index.969d84d22b1777d572a2.css" rel="stylesheet"></head>
 
     <body>
-        <button id="new-list" class="button">Add new list</button>
-        <div class="dialog" title="Hi there!">
-            <ul>
-                <li><a href="#tab1">One</a></li>
-                <li><a href="#tab2">Two</a></li>
-                <li><a href="#tab3">Three</a></li>
-            </ul>
-            <div id="tab1">
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-            <div id="tab2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, dolore?</div>
-            <div id="tab3">Lorem ipsum dolor sit amet consectetur</div>
-            <p>Press "ESC" to see this dialog get destroyed!</p>
+        <div class="dialog" title="Create a new Task">
+            <form>
+                <ul>
+                    <li><a href="#tab1">Title</a></li>
+                    <li><a href="#tab2">Date</a></li>
+                </ul>
+                <div id="tab1">
+                    <input type="text" placeholder="Please name the list" class="inputvalue" />
+                </div>
+                <div id="tab2">Date: <input type="text" class="date"></p>
+                </div>
         </div>
-        <button class="open">CLICK ME! :)</button>
-        </div>
+        </form>
+        <button class="open">Add New List</button>
         <div class="board">
             <div class="column">
                 <div class="list">
                     <div class="list-header">
-                        <p>Date: <input type="text" class="date"></p>
                         Todo
                         <button class="button delete">X</button>
                     </div>
                     <ul class="list-cards">
-                        <li class="card">
-                            Card #1
-                            <button class="button delete">X</button>
-                        </li>
                         <li class="add-new">
                             <form class="new-card" action="index.html">
                                 <input type="text" name="title" class="inputvalue" placeholder="Please name the card" />
@@ -49,6 +42,39 @@
                     </ul>
                 </div>
             </div>
+            <div class="column">
+                <div class="list">
+                    <div class="list-header">
+                        Doing
+                        <button class="button delete">X</button>
+                    </div>
+                    <ul class="list-cards">
+                        <li class="add-new">
+                            <form class="new-card" action="index.html">
+                                <input type="text" name="title" class="inputvalue" placeholder="Please name the card" />
+                                <button class="button add">Add new card</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="column">
+                <div class="list">
+                    <div class="list-header">
+                        Done
+                        <button class="button delete">X</button>
+                    </div>
+                    <ul class="list-cards">
+                        <li class="add-new">
+                            <form class="new-card" action="index.html">
+                                <input type="text" name="title" class="inputvalue" placeholder="Please name the card" />
+                                <button class="button add">Add new card</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     <script type="text/javascript" src="./bundle.js"></script></body>
 
 </html>

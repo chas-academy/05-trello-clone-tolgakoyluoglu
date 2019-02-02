@@ -1,6 +1,6 @@
 html,
 body {
-  background: #9999ff;
+  background: #28794B;
   margin: 0;
   padding: 30px 0 0;
   font-family: sans-serif;
@@ -46,7 +46,20 @@ input {
   height: 100vh;
 }
 
+.ui-dialog .ui-dialog-buttonpane {
+  margin-right: 100px;
+  margin-left: 100px;
+  border: 0px;
+  padding: 0px 15px;
+  background-color: #e2e4e6;
+}
+
+.ui-widget.ui-widget-content {
+  border: 0px solid;
+}
+
 .column {
+  display: none;
   width: 270px;
   margin: 0 5px;
   height: 100%;
@@ -190,9 +203,10 @@ input {
 }
 
 .open {
-  padding: 8px 10px;
-  border-radius: 4px;
-  font-size: 13px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 15px;
   cursor: pointer;
   border: 0 none;
+  margin-left: 5px;
 }
