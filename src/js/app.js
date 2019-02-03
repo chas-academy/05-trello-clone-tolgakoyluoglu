@@ -27,11 +27,8 @@ const jtrello = (function () {
     DOM.$columns = $('.column');
     DOM.$lists = $('.list');
     DOM.$cards = $('.card');
-
     DOM.$newListButton = $('button#new-list');
     DOM.$deleteListButton = $('.list-header > button.delete');
-
-    DOM.$newCardForm = $('form.new-card');
     DOM.$deleteCardButton = $('.card > button.delete');
   }
 
@@ -72,7 +69,6 @@ const jtrello = (function () {
   function bindEvents() {
     DOM.$newListButton.on('click', createList);
     DOM.$deleteListButton.on('click', deleteList);
-    DOM.$newCardForm.on('submit', createCard);
     DOM.$deleteCardButton.on('click', deleteCard);
     DOM.$board.on('submit', 'form.new-card', createCard);
     DOM.$board.on('click', '.card > button.delete', deleteCard);
@@ -105,7 +101,6 @@ const jtrello = (function () {
 
   function deleteList() {
     $(this).closest('.column').remove();
-    console.log("This should delete the list you clicked on");
   }
 
 
@@ -136,13 +131,11 @@ const jtrello = (function () {
     $(this).closest('.card').remove();
   }
 
-  // Metod för att rita ut element i DOM:en
-  function render() {}
-
   /* =================== Publika metoder nedan ================== */
 
   // Init metod som körs först
   function init() {
+    myWidget()
     dialog();
     datePicker();
     dragCards();
@@ -151,6 +144,18 @@ const jtrello = (function () {
     captureDOMEls();
     createTabs();
     bindEvents();
+  }
+
+  function myWidget() {
+    $.widget("trello.tolgas", {
+      _create: function () {
+        this._button = $("<button>");
+        this._button.text("Add New List");
+        $(this.element).append(this._button);
+        this._button.addClass("open")
+      }
+    })
+    $('.wrap').tolgas()
   }
 
   // All kod här
