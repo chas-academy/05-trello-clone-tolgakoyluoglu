@@ -1,6 +1,6 @@
 # Trello clone with jQuery, jQuery UI & Bootstrap
 
-http://tolgakoyluoglu.chas.academy/trello/
+http://tolgakoyluoglu.chas.academy/u05/
 
 Hello there, and welcome to this assignment where you'll be making a clone
 of the popular web application [Trello](https://trello.com) which is used to
